@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container row">
+      <div>
+        <h1>თეატრის ადმინისტრირება</h1>
+        <p class="small">სრული კონტროლი კონტენტსა და ბმულებზე</p>
+      </div>
+      <button id="logout-btn" class="ghost" type="button">გასვლა</button>
+    </div>
+  </header>
+
+  <main class="container grid cols-2">
+    <section class="card">
+      <div class="tabs">
+        <button class="tab active" data-tab="settings" type="button">საიტის ტექსტები</button>
+        <button class="tab" data-tab="performances" type="button">რეპერტუარი</button>
+        <button class="tab" data-tab="actors" type="button">დასი</button>
+        <button class="tab" data-tab="gallery" type="button">გალერია</button>
+        <button class="tab" data-tab="news" type="button">სიახლეები</button>
+      </div>
+
+      <section id="tab-settings" class="tab-panel">
+        <h2>საიტის ძირითადი პარამეტრები</h2>
+        <form id="settings-form" class="grid">
+          <div><label for="hero_title">მთავარი სათაური</label><input id="hero_title" name="hero_title"></div>
+          <div><label for="hero_slogan">სლოგანი</label><input id="hero_slogan" name="hero_slogan"></div>
+          <div><label for="contact_phone">ტელეფონი</label><input id="contact_phone" name="contact_phone"></div>
+          <div><label for="contact_email">ელფოსტა</label><input id="contact_email" name="contact_email" type="email"></div>
+          <div><label for="global_ticket_url">გლობალური ბილეთის ბმული</label><input id="global_ticket_url" name="global_ticket_url" type="url"></div>
+          <button class="primary" type="submit">შენახვა</button>
+          <p id="settings-msg" class="small"></p>
+        </form>
+      </section>
+
+      <section id="tab-performances" class="tab-panel hidden">
+        <h2>სპექტაკლის დამატება/რედაქტირება</h2>
+        <form id="performances-form" class="grid" data-kind="performances">
+          <input type="hidden" name="id">
+          <div><label>დასახელება</label><input name="title" required></div>
+          <div><label>ავტორი</label><input name="author"></div>
+          <div><label>ჟანრი</label><input name="genre"></div>
+          <div><label>ასაკი</label><input name="age"></div>
+          <div><label>ხანგრძლივობა</label><input name="duration"></div>
+          <div><label>ინდივიდუალური ბილეთის ბმული</label><input name="ticketUrl" type="url"></div>
+          <div><label>ფოტო</label><input name="imageFile" type="file" accept="image/*"></div>
+          <button class="primary" type="submit">შენახვა</button>
+          <p class="small" data-msg></p>
+        </form>
+      </section>
+
+      <section id="tab-actors" class="tab-panel hidden">
+        <h2>დასის წევრის დამატება/რედაქტირება</h2>
+        <form id="actors-form" class="grid" data-kind="actors">
+          <input type="hidden" name="id">
+          <div><label>სახელი</label><input name="name" required></div>
+          <div><label>პოზიცია</label><input name="role"></div>
+          <div><label>ტიპი</label>
+            <select name="type">
+              <option value="actors">მსახიობი</option>
+              <option value="directors">რეჟისორი</option>
+            </select>
+          </div>
+          <div><label>ბიოგრაფია</label><textarea name="bio"></textarea></div>
+          <div><label>ფოტო</label><input name="imageFile" type="file" accept="image/*"></div>
+          <button class="primary" type="submit">შენახვა</button>
+          <p class="small" data-msg></p>
+        </form>
+      </section>
+
+      <section id="tab-gallery" class="tab-panel hidden">
+        <h2>გალერიის ელემენტი</h2>
+        <form id="gallery-form" class="grid" data-kind="gallery">
+          <input type="hidden" name="id">
+          <div><label>სათაური</label><input name="title"></div>
+          <div><label>ფოტო</label><input name="imageFile" type="file" accept="image/*" required></div>
+          <button class="primary" type="submit">შენახვა</button>
+          <p class="small" data-msg></p>
+        </form>
+      </section>
+
+      <section id="tab-news" class="tab-panel hidden">
+        <h2>სიახლის დამატება/რედაქტირება</h2>
+        <form id="news-form" class="grid" data-kind="news">
+          <input type="hidden" name="id">
+          <div><label>სათაური</label><input name="title" required></div>
+          <div><label>ტიპი</label><input name="type" placeholder="პრემიერა / ფესტივალი / სიახლე"></div>
+          <div><label>თარიღი</label><input name="date" type="date"></div>
+          <div><label>მოკლე აღწერა</label><textarea name="excerpt"></textarea></div>
+          <div><label>სრული ტექსტი</label><textarea name="content"></textarea></div>
+          <div><label>ფოტო</label><input name="imageFile" type="file" accept="image/*"></div>
+          <button class="primary" type="submit">შენახვა</button>
+          <p class="small" data-msg></p>
+        </form>
+      </section>
+    </section>
+
+    <section class="card">
+      <h2 id="list-title">ჩანაწერები</h2>
+      <div id="admin-list" class="list"></div>
+    </section>
+  </main>
+
+  <script type="module" src="../assets/js/admin.js"></script>
+</body>
+</html>

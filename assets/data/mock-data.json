@@ -1,0 +1,59 @@
+{
+  "settings": {
+    "site": {
+      "hero_title": "თელავის დრამატული თეატრი",
+      "hero_slogan": "ცოცხალი სცენა კახეთის გულში",
+      "contact_phone": "+995 350 27 23 91",
+      "contact_email": "info@telavitheatre.ge",
+      "global_ticket_url": "https://example.com/tickets"
+    }
+  },
+  "performances": [
+    {
+      "id": "p1",
+      "title": "ყვარყვარე თუთაბერი",
+      "author": "მიხეილ ჯავახიშვილი",
+      "genre": "დრამა",
+      "age": "12+",
+      "duration": "2სთ 20წთ",
+      "ticketUrl": "https://example.com/tickets/qvarqvare"
+    },
+    {
+      "id": "p2",
+      "title": "ოტელო",
+      "author": "უილიამ შექსპირი",
+      "genre": "ტრაგედია",
+      "age": "16+",
+      "duration": "2სთ 45წთ",
+      "ticketUrl": ""
+    }
+  ],
+  "actors": [
+    {
+      "id": "a1",
+      "name": "გიორგი გიორგაძე",
+      "role": "მთავარი მსახიობი",
+      "type": "actors",
+      "bio": "დასის წევრი 2005 წლიდან",
+      "image": ""
+    }
+  ],
+  "gallery": [
+    {
+      "id": "g1",
+      "title": "სცენა",
+      "image": ""
+    }
+  ],
+  "news": [
+    {
+      "id": "n1",
+      "title": "ახალი სეზონის გახსნა",
+      "excerpt": "სეზონის გახსნა პრემიერით.",
+      "content": "",
+      "type": "სიახლე",
+      "date": "2026-02-01",
+      "image": ""
+    }
+  ]
+}
